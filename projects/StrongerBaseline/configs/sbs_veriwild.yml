@@ -1,0 +1,35 @@
+_BASE_: "Base-Strongerbaseline.yml"
+
+INPUT:
+  SIZE_TRAIN: [256, 256]
+  SIZE_TEST: [256, 256]
+
+MODEL:
+  BACKBONE:
+    NAME: "build_resnet_backbone"
+    WITH_IBN: True
+    WITH_NL: True
+    PRETRAIN_PATH: "/home/liuxinchen3/zhengjinkai/fast-reid/pretrain_model/resnet50_ibn_a.pth.tar"
+
+  HEADS:
+    NUM_CLASSES: 30671
+
+SOLVER:
+  IMS_PER_BATCH: 512
+  MAX_ITER: xxx
+  DELAY_ITERS: xxx
+  WARMUP_ITERS: xxx
+  FREEZE_ITERS: xxx
+
+  LOG_PERIOD: xxx
+  CHECKPOINT_PERIOD: xxx
+
+DATASETS:
+  NAMES: ("VeRiWild",)
+  TESTS: ("SamllVeRiWild", "MediumVeRiWild", "LargeVeRiWild",)
+
+TEST:
+  EVAL_PERIOD: xxx
+  IMS_PER_BATCH: 512
+
+OUTPUT_DIR: "logs/veriwild/stronger_baseline"

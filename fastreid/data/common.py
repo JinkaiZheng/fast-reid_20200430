@@ -52,7 +52,7 @@ class CommDataset(Dataset):
         if 'cuhk03' in file_path:
             prefix = 'cuhk'
         else:
-            prefix = file_path.split('/')[1]
+            prefix = file_path.split('/')[5]
         return prefix + '_' + str(pid)
 
     def update_pid_dict(self, pid_dict):

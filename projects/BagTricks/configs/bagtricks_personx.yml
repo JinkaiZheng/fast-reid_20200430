@@ -1,0 +1,36 @@
+_BASE_: "Base-bagtricks.yml"
+
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+    PRETRAIN_PATH: '/home/liuxinchen3/zhengjinkai/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar'
+  HEADS:
+    NUM_CLASSES: 700
+    POOL_LAYER: gempool
+  LOSSES:
+    TRI:
+      MARGIN: 0.0
+      HARD_MINING: False
+
+DATASETS:
+  NAMES: ("PersonX",)
+  TESTS: ("PersonX", "Market1501",)
+
+SOLVER:
+  IMS_PER_BATCH: 64
+  MAX_ITER: 38040
+  STEPS: [12680, 28530]
+  WARMUP_ITERS: 3170
+
+  LOG_PERIOD: 317
+  CHECKPOINT_PERIOD: 12680
+
+TEST:
+  EVAL_PERIOD: 3170
+  IMS_PER_BATCH: 128
+
+OUTPUT_DIR: "logs/visda20/personx_market1501_gem_weightedtriplet_softmargin"
