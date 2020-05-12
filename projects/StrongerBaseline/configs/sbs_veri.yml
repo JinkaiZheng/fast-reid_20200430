@@ -1,35 +1,35 @@
 _BASE_: "Base-Strongerbaseline.yml"
 
 INPUT:
-  SIZE_TRAIN: [256, 256]
-  SIZE_TEST: [256, 256]
+  SIZE_TRAIN: [384, 384]
+  SIZE_TEST: [384, 384]
 
 MODEL:
   BACKBONE:
     NAME: "build_resnet_backbone"
     WITH_IBN: True
     WITH_NL: True
-    PRETRAIN_PATH: "/home/liuxinchen3/zhengjinkai/fast-reid/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar"
+    PRETRAIN_PATH: "/home/liuxinchen3/notespace/project/resnet_pretrain/resnet50_ibn_a.pth.tar"
 
   HEADS:
     NUM_CLASSES: 575
 
 SOLVER:
-  IMS_PER_BATCH: 256
-  MAX_ITER: 18000
-  DELAY_ITERS: 9000
-  WARMUP_ITERS: 1500
-  FREEZE_ITERS: 1500
+  IMS_PER_BATCH: 48
+  MAX_ITER: 47100
+  DELAY_ITERS: 23550
+  WARMUP_ITERS: 3925
+  FREEZE_ITERS: 3925
 
-  LOG_PERIOD: 150
-  CHECKPOINT_PERIOD: 6000
+  LOG_PERIOD: 785
+  CHECKPOINT_PERIOD: 15700
 
 DATASETS:
   NAMES: ("VeRi",)
   TESTS: ("VeRi",)
 
 TEST:
-  EVAL_PERIOD: 1500
-  IMS_PER_BATCH: 512
+  EVAL_PERIOD: 4710
+  IMS_PER_BATCH: 96
 
-OUTPUT_DIR: "logs/veri/256_4gpu_sbs"
+OUTPUT_DIR: "logs/veri/48_1gpu_sbs"

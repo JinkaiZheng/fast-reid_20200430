@@ -7,7 +7,7 @@ INPUT:
 MODEL:
   BACKBONE:
     WITH_IBN: True
-    PRETRAIN_PATH: '/home/liuxinchen3/zhengjinkai/fast-reid/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar'
+    PRETRAIN_PATH: "/home/liuxinchen3/notespace/project/resnet_pretrain/resnet50_ibn_a.pth.tar"
   HEADS:
     NUM_CLASSES: 13164
 
@@ -25,7 +25,7 @@ SOLVER:
   CHECKPOINT_PERIOD: 70800
 
 TEST:
-  EVAL_PERIOD: 17700
+  EVAL_PERIOD: 1770
   IMS_PER_BATCH: 128
 
-OUTPUT_DIR: "logs/vehicleid/64_4gpu_bot"
+OUTPUT_DIR: "logs/vehicleid/64_4gpu_bot_debug"

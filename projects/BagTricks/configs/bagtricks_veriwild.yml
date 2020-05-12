@@ -7,13 +7,13 @@ INPUT:
 MODEL:
   BACKBONE:
     WITH_IBN: True
-    PRETRAIN_PATH: '/home/liuxinchen3/zhengjinkai/fast-reid/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar'
+    PRETRAIN_PATH: "/home/liuxinchen3/notespace/project/resnet_pretrain/resnet50_ibn_a.pth.tar"
   HEADS:
     NUM_CLASSES: 30671
 
 DATASETS:
   NAMES: ("VeRiWild",)
-  TESTS: ("SamllVeRiWild", "MediumVeRiWild", "LargeVeRiWild",)
+  TESTS: ("SmallVeRiWild", "MediumVeRiWild", "LargeVeRiWild",)
 
 SOLVER:
   IMS_PER_BATCH: 128
@@ -25,7 +25,7 @@ SOLVER:
   CHECKPOINT_PERIOD: 86800
 
 TEST:
-  EVAL_PERIOD: 21700
+  EVAL_PERIOD: 2170
   IMS_PER_BATCH: 256
 
-OUTPUT_DIR: "logs/veriwild/128_4gpu_bot"
+OUTPUT_DIR: "logs/veriwild/128_4gpu_bot_debug"

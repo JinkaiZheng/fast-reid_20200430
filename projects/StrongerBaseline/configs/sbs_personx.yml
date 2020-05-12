@@ -11,31 +11,32 @@ MODEL:
     NAME: "build_resnet_backbone"
     WITH_IBN: True
     WITH_NL: True
-    PRETRAIN_PATH: "/home/liuxinchen3/zhengjinkai/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar"
+#    DEPTH: 101
+    PRETRAIN_PATH: "/home/liuxinchen3/notespace/project/resnet_pretrain/resnet50_ibn_a.pth.tar"
 
   HEADS:
     NUM_CLASSES: 700
 
 SOLVER:
   IMS_PER_BATCH: 64
-  MAX_ITER: 38040
-  DELAY_ITERS: 19020
-  WARMUP_ITERS: 3170
-  FREEZE_ITERS: 3170
+  MAX_ITER: 19020
+  DELAY_ITERS: 9510
+  WARMUP_ITERS: 1585
+  FREEZE_ITERS: 1585
 
   LOG_PERIOD: 317
-  CHECKPOINT_PERIOD: 12680
+  CHECKPOINT_PERIOD: 6340
 
 DATASETS:
   NAMES: ("PersonX",)
   TESTS: ("PersonX", "Market1501",)
 
 TEST:
-  EVAL_PERIOD: 3170
+  EVAL_PERIOD: 1902
   IMS_PER_BATCH: 128
   PRECISE_BN:
-    DATASET: Market1501
-    ENABLED: True
+    DATASET: Visda20TargetTrainVal
+    ENABLED: False
     NUM_ITER: 300
 
-OUTPUT_DIR: "logs/visda20/sbs_personx_market1501_prebn_debug"
+OUTPUT_DIR: "logs/visda20/64_2gpu_sbs_personx_market1501_R50-ibn-a"

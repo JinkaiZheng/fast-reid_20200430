@@ -18,4 +18,6 @@ from .market1501 import Market1501
 from .msmt17 import MSMT17
 from .veri import VeRi
 from .vehicleid import VehicleID, SmallVehicleID, MediumVehicleID, LargeVehicleID
-from .veriwild import VeRiWild, SamllVeRiWild, MediumVeRiWild, LargeVeRiWild
+from .veriwild import VeRiWild, SmallVeRiWild, MediumVeRiWild, LargeVeRiWild
+from .personx import PersonX
+from .visda20targettrainval import Visda20TargetTrainVal

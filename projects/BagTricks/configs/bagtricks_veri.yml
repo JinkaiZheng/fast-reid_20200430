@@ -1,34 +1,34 @@
 _BASE_: "Base-bagtricks.yml"
 
 INPUT:
-  SIZE_TRAIN: [256, 256]
-  SIZE_TEST: [256, 256]
+  SIZE_TRAIN: [384, 384]
+  SIZE_TEST: [384, 384]
 
 MODEL:
   BACKBONE:
     WITH_IBN: True
-    PRETRAIN_PATH: '/home/liuxinchen3/zhengjinkai/fast-reid/fast-reid-strange/pretrain_model/resnet50_ibn_a.pth.tar'
+    PRETRAIN_PATH: "/home/liuxinchen3/notespace/project/resnet_pretrain/resnet50_ibn_a.pth.tar"
   HEADS:
     NUM_CLASSES: 575
-  LOSSES:
-    CE:
-      EPSILON: 0.0
+#  LOSSES:
+#    CE:
+#      EPSILON: 0.0
 
 DATASETS:
   NAMES: ("VeRi",)
   TESTS: ("VeRi",)
 
 SOLVER:
-  IMS_PER_BATCH: 64
-  MAX_ITER: 70800
-  STEPS: [23600, 53100]
-  WARMUP_ITERS: 5900
+  IMS_PER_BATCH: 48
+  MAX_ITER: 94200
+  STEPS: [31400, 70650]
+  WARMUP_ITERS: 7850
 
-  LOG_PERIOD: 590
-  CHECKPOINT_PERIOD: 23600
+  LOG_PERIOD: 785
+  CHECKPOINT_PERIOD: 31400
 
 TEST:
-  EVAL_PERIOD: 5900
-  IMS_PER_BATCH: 128
+  EVAL_PERIOD: 7850
+  IMS_PER_BATCH: 96
 
-OUTPUT_DIR: "logs/veri/64_4gpu_bot_woLabelSmooth"
+OUTPUT_DIR: "logs/veri/48_1gpu_bot"
